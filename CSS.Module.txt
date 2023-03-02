@@ -1,0 +1,12 @@
+O CSS naturalmente é global, se eu crio um arquivo .css para estilizar um componente
+Outras componentes com o mesmo nome ou caminho também serão estilizados
+
+Para evitar isso e fazer de forma Privada a estilização dos componentes, usa-se:
+
+ .module.css
+
+ Obs: No css module não é possivel criar classes com traço " - "  
+
+Jeito de usar o classname
+<div classname={"nomeImportado"."nomeDaFrase"}>
+</div>
