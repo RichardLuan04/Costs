@@ -2,6 +2,7 @@ import './App.css'
 
 import Text from './components/Text/Text'
 import Games from './components/Games/Games'
+import Form from './components/Form/Form'
 
 function App() {
 
@@ -21,6 +22,12 @@ function App() {
 				<h1>Props Avançada:</h1>
 
 				<Games/>
+			</div>
+
+			<div className="container">
+				<h1>Funções + useState: </h1>
+
+				<Form/>
 			</div>
 		</div>
 	)
