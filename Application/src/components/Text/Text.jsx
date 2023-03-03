@@ -1,9 +1,9 @@
-import './Text.css'
+import style from './Text.module.css'
 
 function Text(props) {
 
     return (
-        <div className="cube">
+        <div className={style.cube}>
             <span>{props.number}</span>
         </div>
     )

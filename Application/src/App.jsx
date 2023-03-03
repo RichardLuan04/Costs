@@ -1,6 +1,7 @@
 import './App.css'
 
 import Text from './components/Text/Text'
+import Games from './components/Games/Games'
 
 function App() {
 
@@ -14,6 +15,12 @@ function App() {
 					<Text number='2' />
 					<Text number='3' />
 				</div>
+			</div>
+
+			<div className="container">
+				<h1>Props Avançada:</h1>
+
+				<Games/>
 			</div>
 		</div>
 	)

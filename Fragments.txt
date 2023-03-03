@@ -1,0 +1,12 @@
+Sua sintexe é basicamente um componente sem retornar uma div com varios elementos dentro, 
+e sim 'separado', assim:
+
+<>
+    <h1> teste </h1>
+
+    <ul>
+        <li> teste </li>
+        <li> teste </li>
+        <li> teste </li>
+    </ul>
+</>
