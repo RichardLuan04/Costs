@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 
 import Container from '../Container/Container'
-
 import styles from './NavBar.module.css'
 import logo from '../../../../public/costs_logo.png'
 

@@ -1,8 +1,8 @@
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
-import Home from './components/pages/Home'
+import Home from './components/pages/Home/Home'
 import Contact from './components/pages/Contact'
 import Company from './components/pages/Company'
-import NewProject from './components/pages/NewProject'
+import NewProject from './components/pages/NewProject/NewProject'
 import Projects from './components/pages/Projects'
 
 import Container from './components/layout/Container/Container'
