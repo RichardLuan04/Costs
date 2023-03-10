@@ -8,7 +8,7 @@ function Form() {
 
     function cadastrarUsuario(e) {
         e.preventDefault()
-        alert(`Usuario: ${name}\nSenha: ${password}`)
+        console.log(`Usuario: ${name}\nSenha: ${password}`)
     }
 
     return (
@@ -24,6 +24,17 @@ function Form() {
 
                 <input type="submit" value="Cadastrar" className={styles.button}/>
             </form>
+
+            {(name && password) ? (
+                <div className={styles.showEmail}>
+                    <p>Nome: {name} <br/> Senha: {password} </p>
+                    
+                    <button className={styles.button} onClick={() => {
+                        setName('')
+                        setPassword('')
+                    }}>Limpar email</button>
+                </div>
+            ): null}
         </>
     )
 }

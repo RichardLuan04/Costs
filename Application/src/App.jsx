@@ -1,35 +1,16 @@
-import './App.css'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 
-import Text from './components/Text/Text'
-import Games from './components/Games/Games'
-import Form from './components/Form/Form'
+import Index from './pages/Index/index'
+import Exemple from './pages/Exemple/Exemple'
 
 function App() {
-
 	return (
-		<div className="App">
-			<div className="container">
-				<h1>Componente + Props + module.css:</h1>
-
-				<div className="text-box">
-					<Text number='1' />
-					<Text number='2' />
-					<Text number='3' />
-				</div>
-			</div>
-
-			<div className="container">
-				<h1>Props Avançada:</h1>
-
-				<Games/>
-			</div>
-
-			<div className="container">
-				<h1>Funções + useState: </h1>
-
-				<Form/>
-			</div>
-		</div>
+		<Router>
+			<Routes>
+				<Route path='/' element={<Index/>} />
+				<Route path='/exemple' element={<Exemple/>}/>
+			</Routes>
+		</Router>
 	)
 }
 

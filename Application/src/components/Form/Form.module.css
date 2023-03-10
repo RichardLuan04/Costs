@@ -47,3 +47,10 @@ form {
     font-size: 18px;
     font-weight: 500;
 }
+
+.showEmail p{
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
