@@ -1,23 +1,38 @@
-function ProjectForm() {
+import { useState, useEffect } from 'react'
+
+import Input from '../Form/Input/Input'
+import Select from '../Form/Select/Select'
+import Submit from '../Form/Submit/Submit'
+
+import styles from './ProjectForm.module.css'
+
+function ProjectForm({ buttonText }) {
+
+    const [categories, setCategories] = useState([])
+
+    useEffect(() => {
+        fetch("http://localhost:5000/categories", {
+            method: "GET",
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                setCategories(data)
+            })
+            .catch(error => console.log(error))
+    }, [])
+
     return (
-        <form>
-            <div>
-                <input type="text" placeholder="Insira o nome do projeto" />
-            </div>
+        <form className={styles.form}>
 
-            <div>
-                <input type="number" placeholder="Insira o orçamento total" />
-            </div>
+            <Input type='text' text='Nome do projeto' name='name' placeholder='Insira o nome do projeto' />
+            <Input type='number' text='Orçamento do projeto' name='budget' placeholder='Insira o orçamento total' />
 
-            <div>
-                <select name="categoryID">
-                    <option disabled selected>Selecione a categoria</option>
-                </select>
-            </div>
+            <Select name='categoyID' text='Selecione a categoria' options={categories} />
 
-            <div>
-                <input type="submit" value="Criar porojeto" />
-            </div>
+            <Submit text={buttonText} />
         </form>
     )
 }
