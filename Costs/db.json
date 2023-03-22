@@ -10,6 +10,50 @@
       "cost": 0,
       "service": [],
       "id": 2
+    },
+    {
+      "name": "RPB Games",
+      "budget": "2500",
+      "category": {
+        "id": "Desenvolvimento",
+        "name": "Desenvolvimento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 3
+    },
+    {
+      "name": "Richard Company",
+      "budget": "10000",
+      "category": {
+        "id": "Planejamento",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 4
+    },
+    {
+      "name": "Raissa MakeUp",
+      "budget": "2650",
+      "category": {
+        "id": "Infra",
+        "name": "Infra"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 5
+    },
+    {
+      "name": "Casa do Sonhos",
+      "budget": "500000",
+      "category": {
+        "id": "Planejamento",
+        "name": "Planejamento"
+      },
+      "cost": 0,
+      "service": [],
+      "id": 6
     }
   ],
   "categories": [

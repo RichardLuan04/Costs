@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react'
 
-import Input from '../Form/Input/Input'
-import Select from '../Form/Select/Select'
-import Submit from '../Form/Submit/Submit'
+import Input from '../../Form/Input/Input'
+import Select from '../../Form/Select/Select'
+import Submit from '../../Form/Submit/Submit'
 
 import styles from './ProjectForm.module.css'
 
