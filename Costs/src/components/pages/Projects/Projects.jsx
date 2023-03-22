@@ -6,8 +6,11 @@ import Message from '../../layout/Message/Message'
 import Container from '../../layout/Container/Container'
 import LinkButton from '../../layout/LinkButton/LinkButton'
 import ProjectCard from '../../Project/ProjectCard/ProjectCard'
+import Loading from '../../layout/Loading/Loading'
 
 function Projects() {
+
+    const [removeLoading, setRemoveLoading] = useState(false)
 
     const location = useLocation()
     let message = ''
@@ -27,6 +30,7 @@ function Projects() {
         }).then(response => response.json())
         .then(data => {
             setProjects(data)
+            setRemoveLoading(true)
         }).catch(error => console.log(error))
     }, [])
 
@@ -44,8 +48,10 @@ function Projects() {
                     projects.map((project) => (
                         <ProjectCard id={project.id} name={project.name} budget={project.budget}
                         category={project.category.name} key={project.id}/>
-                    )) : null
-                }
+                    )) : <Loading/>
+                } { removeLoading && projects.length === 0 && (
+                    <p>Não há projetos cadastrados</p>
+                )}
             </Container>
         </div>
     )
