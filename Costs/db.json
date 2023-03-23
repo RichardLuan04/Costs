@@ -2,7 +2,7 @@
   "projects": [
     {
       "name": "Base social",
-      "budget": "10000",
+      "budget": "25005",
       "category": {
         "id": "Design",
         "name": "Design"
@@ -13,7 +13,7 @@
     },
     {
       "name": "RPB Games",
-      "budget": "2500",
+      "budget": "2900",
       "category": {
         "id": "Desenvolvimento",
         "name": "Desenvolvimento"

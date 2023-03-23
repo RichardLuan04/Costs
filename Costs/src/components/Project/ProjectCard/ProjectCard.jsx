@@ -11,10 +11,10 @@ function ProjectCard({ id, name, budget, category, handleRemove }) {
             <p className={styles.categoryText} > <span className={`${styles[category.toLowerCase()]}`} ></span> {category} </p>
 
             <div className={styles.projectActions}>
-                <Link to=''>
+                <Link to={`/project/${id}`}>
                     <BsPencil/> Editar
                 </Link>
-                <button>
+                <button onClick={() =>  handleRemove(id) }>
                     <BsFillTrashFill/> Excluir
                 </button>
             </div>

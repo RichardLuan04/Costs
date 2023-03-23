@@ -11,6 +11,8 @@ import Loading from '../../layout/Loading/Loading'
 function Projects() {
 
     const [removeLoading, setRemoveLoading] = useState(false)
+    const [projects, setProjects] = useState([])
+    const [projectMessage, setProjectMessage] = useState('')
 
     const location = useLocation()
     let message = ''
@@ -18,8 +20,6 @@ function Projects() {
     if (location.state) {
         message = location.state.message
     }
-
-    const [projects, setProjects] = useState([])
 
     useEffect(() => {
         fetch('http://localhost:5000/projects', {
@@ -34,6 +34,19 @@ function Projects() {
         }).catch(error => console.log(error))
     }, [])
 
+    function removeProject(id) {
+        fetch(`http://localhost:5000/projects/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(response => response.json())
+          .then(() => {
+            setProjects(projects.filter(project => project.id !== id))
+            setProjectMessage('Projeto removido com sucesso!')
+          }).catch(error => console.log(error))
+    }
+
     return (
         <div className={styles.projectContainer}>
             <div className={styles.titleContainer}>
@@ -42,12 +55,13 @@ function Projects() {
             </div>
 
             {message ? <Message message={message} type='sucess'/> : null}
+            {projectMessage ? <Message message={projectMessage} type='sucess'/> : null}
 
             <Container customClass='start'>
                 {projects.length > 0 ?
                     projects.map((project) => (
                         <ProjectCard id={project.id} name={project.name} budget={project.budget}
-                        category={project.category.name} key={project.id}/>
+                        category={project.category.name} key={project.id} handleRemove={removeProject} />
                     )) : <Loading/>
                 } { removeLoading && projects.length === 0 && (
                     <p>Não há projetos cadastrados</p>
