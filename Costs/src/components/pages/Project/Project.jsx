@@ -1,6 +1,9 @@
 import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
+import { parse, v4 as uuidv4 } from 'uuid'
 
+import ServiceForm from '../../Service/ServiceForm'
+import ServiceCard from '../../Service/ServiceCard/ServiceCard'
 import ProjectForm from '../../Project/ProjectForm/ProjectForm'
 import Loading from '../../layout/Loading/Loading'
 import Container from '../../layout/Container/Container'
@@ -13,7 +16,11 @@ function Project() {
     const { id } = useParams()
 
     const [project, setProject] = useState([])
+    const [services, setServices] = useState([])
+
     const [showProject, setShowProject] = useState(false)
+    const [showService, setShowService] = useState(false)
+
     const [message, setMessage] = useState()
     const [type, setType] = useState()
 
@@ -26,14 +33,19 @@ function Project() {
         }).then(response => response.json())
             .then(data => {
                 setProject(data)
+                setServices(data.service)
             }).catch(error => console.log(error))
     }, [id])
 
-    function toggleProjectForm() {
+    const toggleProjectForm = () => {
         setShowProject(!showProject)
     }
 
-    function editPost(project) {
+    const toggleServiceForm = () => {
+        setShowService(!showService)
+    }
+
+    const editPost = (project) => {
         setMessage('')
 
         if (project.budget < project.cost) {
@@ -59,6 +71,42 @@ function Project() {
             .catch(error => console.log(error))
     }
 
+    const createService = (project) => {
+        setMessage('')
+
+        const lastService = project.service[project.service.length - 1]
+
+        lastService.id = uuidv4()
+
+        const lastServiceCost = lastService.cost
+        const newCost = parseFloat(project.cost) + parseFloat(lastServiceCost)
+
+        if (newCost > parseFloat(project.budget)) { // Verificação para não ultrapassar valor maximo
+            setMessage('Orçamento ultrappasado, verifique o valor do serviço')
+            setType('error')
+            project.service.pop()
+            return false
+        }
+
+        project.cost = newCost 
+
+        fetch(`http://localhost:5000/projects/${project.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type' : 'application/json'
+            },
+            body: JSON.stringify(project)
+        }).then(response => response.json())
+        .then(data => {
+            setShowService(false)
+        })
+        .catch(error => console.log(error))
+    }
+
+    const removeService = () => {
+
+    }
+
     return (
         <>
             {project.name ? (
@@ -80,6 +128,25 @@ function Project() {
                                 </div>
                             )}
                         </div>
+                        <div className={styles.serviceForm}>
+                            <h2>Adicione um serviço:</h2>
+                            <button className={styles.button} onClick={toggleServiceForm}>{!showService ? 'Adicionar Serviço' : 'Fechar'}</button>
+
+                            <div className={styles.projectInfo}>
+                                {showService && (<ServiceForm handleSubmit={createService} buttonText='Adicionar Serviço' projectData={project} />)}
+                            </div>
+                        </div>
+
+                        <h2>Serviços</h2>
+
+                        <Container customClass='start'>
+                            {services.length > 0 &&
+                                services.map(service => (
+                                    <ServiceCard id={service.id} name={service.name} cost={service.cost} description={service.description} key={service.key} handleRemove={removeService}/>
+                                ))
+                            }
+                            {services.length === 0 && <p>Não há serviços cadastrados</p> }
+                        </Container>
                     </Container>
                 </div>
             ) : <Loading />}

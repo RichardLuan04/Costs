@@ -18,8 +18,33 @@
         "id": "Desenvolvimento",
         "name": "Desenvolvimento"
       },
-      "cost": 0,
-      "service": [],
+      "cost": 1910,
+      "service": [
+        {
+          "name": "Equipe",
+          "cost": "350",
+          "description": "Contratando equipe para trabalhar em nossa empresa",
+          "id": "fe81c6e0-ee67-43c8-afec-6c47136292b1"
+        },
+        {
+          "name": "Projeto Site de Vendas",
+          "cost": "550",
+          "description": "Criaremos um site de vendas de livros para nosso cliente",
+          "id": "e3e4ca6f-2d78-4311-b28e-115753f29dcd"
+        },
+        {
+          "name": "Contratar o Richard",
+          "cost": "1000",
+          "description": "Contratar o mehor funcionario da historia",
+          "id": "ee4e8c1c-7259-4303-a03d-d5d1513411db"
+        },
+        {
+          "name": "Demitir o Pedro",
+          "cost": "10",
+          "description": "Funcionario muito ruim",
+          "id": "dc99ecbb-ba5f-4814-a932-871820b6a8af"
+        }
+      ],
       "id": 3
     },
     {
@@ -43,17 +68,6 @@
       "cost": 0,
       "service": [],
       "id": 5
-    },
-    {
-      "name": "Casa do Sonhos",
-      "budget": "500000",
-      "category": {
-        "id": "Planejamento",
-        "name": "Planejamento"
-      },
-      "cost": 0,
-      "service": [],
-      "id": 6
     }
   ],
   "categories": [
