@@ -18,7 +18,7 @@
         "id": "Desenvolvimento",
         "name": "Desenvolvimento"
       },
-      "cost": 1910,
+      "cost": 2110,
       "service": [
         {
           "name": "Equipe",
@@ -43,6 +43,12 @@
           "cost": "10",
           "description": "Funcionario muito ruim",
           "id": "dc99ecbb-ba5f-4814-a932-871820b6a8af"
+        },
+        {
+          "name": "Ensinar PHP",
+          "cost": "200",
+          "description": "Ensinar PHP aos funcionarios",
+          "id": "8a732683-a859-4a62-9b0a-6bdf2b5fe5e8"
         }
       ],
       "id": 3
@@ -68,6 +74,24 @@
       "cost": 0,
       "service": [],
       "id": 5
+    },
+    {
+      "name": "Casa dos Sonhos",
+      "budget": "500000",
+      "category": {
+        "id": "Planejamento",
+        "name": "Planejamento"
+      },
+      "cost": null,
+      "service": [
+        {
+          "name": "Materiais",
+          "cost": "10000",
+          "description": "Materiais Necessarios: Tijolo, areia, cimento, piso, vidro e madeira",
+          "id": "a78b9db7-6f05-4bfa-a620-143945e55eee"
+        }
+      ],
+      "id": 6
     }
   ],
   "categories": [
