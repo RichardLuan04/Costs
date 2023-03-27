@@ -76,22 +76,22 @@
       "id": 5
     },
     {
-      "name": "Casa dos Sonhos",
-      "budget": "500000",
+      "name": "Construção de Casa",
+      "budget": "250000",
       "category": {
         "id": "Planejamento",
         "name": "Planejamento"
       },
-      "cost": null,
+      "cost": 2000,
       "service": [
         {
           "name": "Materiais",
-          "cost": "10000",
-          "description": "Materiais Necessarios: Tijolo, areia, cimento, piso, vidro e madeira",
-          "id": "a78b9db7-6f05-4bfa-a620-143945e55eee"
+          "cost": "2000",
+          "description": "Comprar Areia, Tijolo, pedra, madeira, cimento e etc...",
+          "id": "936476e9-a9c6-46c3-abff-5bb3f4e53165"
         }
       ],
-      "id": 6
+      "id": 7
     }
   ],
   "categories": [

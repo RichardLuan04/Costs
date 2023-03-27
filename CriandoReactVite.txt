@@ -1,5 +1,0 @@
-Para criar um projeto em React Vite use o comando
-
-npm init vite@latest
-
-obs: Necessario Node.js
